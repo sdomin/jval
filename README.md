@@ -52,3 +52,6 @@ assertEquals(m, v1);
 - [ ] Add *asMap* method to BaseValue. The map should support *put* methods on mutable values.
 - [ ] What should *immutableCopy*, *mutableCopy* and setter methods do when working with other *jval* objects or with java collections?
 
+## Links
+- https://immutables.github.io/
+- https://github.com/google/auto/tree/master/value ([presentation](https://docs.google.com/presentation/d/14u_h-lMn7f1rXE1nDiLX0azS3IkgjGl5uxp5jGJ75RE))
