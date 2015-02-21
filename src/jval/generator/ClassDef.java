@@ -64,7 +64,12 @@ class ClassDef {
         Set<Method> allFieldMethods = fields.stream().flatMap(f -> f.getMethods().stream()).collect(Collectors.toSet());
         Set<Method> allMethods = new HashSet<>(Arrays.asList(type.getMethods()));
         allMethods.removeAll(allFieldMethods);
-        if (!allMethods.isEmpty()) {
+        long c = allMethods.stream()
+                .filter(m ->
+                        !(m.getParameterCount() == 0 &&
+                                (m.getName().equals("immutableCopy") || m.getName().equals("mutableCopy"))))
+                .count();
+        if (c != 0) {
             throw new IllegalArgumentException("Default implementation required for methods: " + allMethods);
         }
     }

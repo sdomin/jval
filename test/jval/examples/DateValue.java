@@ -1,11 +1,13 @@
 package jval.examples;
 
+import jval.BaseValue;
+
 import java.time.LocalDateTime;
 
 /**
  * @author Sergiy Domin
  */
-public interface DateValue {
+public interface DateValue extends BaseValue {
 
     LocalDateTime getDate();
 
@@ -14,4 +16,10 @@ public interface DateValue {
     double getValue();
 
     DateValue setValue(double value);
+
+    @Override
+    DateValue immutableCopy();
+
+    @Override
+    DateValue mutableCopy();
 }
